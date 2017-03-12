@@ -112,7 +112,7 @@ int main() {
     }
 
 
-    //data structure will be better in the long run, and more input verification is needed
+    //data structure may be better, and more input verification is needed
     //at least at the moment a dynamic array works
     return 0;
 }
