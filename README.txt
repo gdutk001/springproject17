@@ -1,4 +1,4 @@
-Repo for UF C++ Programming 2 semester project.
+Josh’s repo for UF C++ Programming 2 semester project.
 
 Branches:
 
