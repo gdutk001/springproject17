@@ -2,12 +2,6 @@
 
 
 
-
-string searchSKU(string SKU){
-    
-}
-
-
 struct itemNode{ //struct for managing items
     string name;
     string price;
@@ -16,12 +10,14 @@ struct itemNode{ //struct for managing items
     string model;
     string color;
     string serial;
+    string SKU;
     itemNode* nextItem;
 };
 
 itemNode *g_head; //will point to head of data structure
+int g_sizeOfWarehouse = 0;
 
-bool initiateData(int intitalSize) { //creates the linked list data structure
+bool initiateData() { //creates the linked list data structure
 
     int i = 0;
     itemNode *n;
@@ -35,10 +31,11 @@ bool initiateData(int intitalSize) { //creates the linked list data structure
     n->model = "NA";
     n->color = "NA";
     n->serial = "NA";
+    n->SKU = "NA";
     temp = n;
     g_head = n;
 
-    while (i <= intitalSize) { //loop to initialize all free lists
+    while (i <= g_sizeOfWarehouse) { //loop to initialize all free lists
         n = new itemNode;
         n->name = "NA";
         n->price = "NA";
@@ -47,6 +44,7 @@ bool initiateData(int intitalSize) { //creates the linked list data structure
         n->model = "NA";
         n->color = "NA";
         n->serial = "NA";
+        n->SKU = "NA";
         temp->nextItem = n;
         temp = temp->nextItem;
         i++;
@@ -55,10 +53,41 @@ bool initiateData(int intitalSize) { //creates the linked list data structure
     return true;
 }
 
+string searchSKU(string SKUcheck) {
+
+    itemNode *n = g_head;
+
+
+    for (int i = 0; i <= g_sizeOfWarehouse; i++) {  //loop used find a matching SKU and print its values
+
+
+        if ((n->SKU) == SKUcheck) {
+            cout << "NAME:      " << n->name << endl;
+            cout << "PRICE:     " << n->price << endl;
+            cout << "DIMENSION: " << n->dimension << endl;
+            cout << "REVISION:  " << n->revision << endl;
+            cout << "MODEL:     " << n->model << endl;
+            cout << "COLOR:     " << n->color << endl;
+            cout << "SERIAL:    " << n->serial << endl;
+            cout << "SKU:       " << n->SKU << endl;
+
+            i = g_sizeOfWarehouse;
+        }
+
+        if (i < g_sizeOfWarehouse) {
+            n = n->nextItem;
+        }
+
+        if (i == g_sizeOfWarehouse) {
+            cout << "ERROR: SKU '" << SKUcheck << "' NOT FOUND IN SYSTEM, PLEASE TRY AGAIN." << endl;
+        }
+
+    }
+
+}
 
 
 
-/*
 
 int inputValid(){  //checks if input is valid (is a number)
 
