@@ -2,6 +2,46 @@
 
 
 
+
+string searchSKU(string SKU){
+    return "hi";
+}
+
+
+struct itemNode{ //struct for managing items
+    string freeData;
+    itemNode* freeNext;
+};
+
+itemNode *g_head; //will point to head of data structure
+
+bool initiateData(int intitalSize) { //creates the linked list data structure
+
+    int i = 0;
+    itemNode *n;
+    itemNode *temp;
+
+    n = new itemNode;
+    n->freeData = "Free";
+    temp = n;
+    g_head = n;
+
+    while (i <= intitalSize) { //loop to initialize all free lists
+        n = new itemNode;
+        n->freeData = "Free";
+        temp->freeNext = n;
+        temp = temp->freeNext;
+        i++;
+    }
+
+    return true;
+}
+
+
+
+
+
+
 int inputValid(){  //checks if input is valid (is a number)
 
     int choice;
