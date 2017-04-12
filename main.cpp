@@ -2,6 +2,64 @@
 
 
 
+
+string searchSKU(string SKU){
+    
+}
+
+
+struct itemNode{ //struct for managing items
+    string name;
+    string price;
+    string dimension;
+    string revision;
+    string model;
+    string color;
+    string serial;
+    itemNode* nextItem;
+};
+
+itemNode *g_head; //will point to head of data structure
+
+bool initiateData(int intitalSize) { //creates the linked list data structure
+
+    int i = 0;
+    itemNode *n;
+    itemNode *temp;
+
+    n = new itemNode;
+    n->name = "NA";
+    n->price = "NA";
+    n->dimension = "NA";
+    n->revision = "NA";
+    n->model = "NA";
+    n->color = "NA";
+    n->serial = "NA";
+    temp = n;
+    g_head = n;
+
+    while (i <= intitalSize) { //loop to initialize all free lists
+        n = new itemNode;
+        n->name = "NA";
+        n->price = "NA";
+        n->dimension = "NA";
+        n->revision = "NA";
+        n->model = "NA";
+        n->color = "NA";
+        n->serial = "NA";
+        temp->nextItem = n;
+        temp = temp->nextItem;
+        i++;
+    }
+
+    return true;
+}
+
+
+
+
+/*
+
 int inputValid(){  //checks if input is valid (is a number)
 
     int choice;
